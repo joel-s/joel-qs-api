@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'questions',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -143,3 +146,17 @@ REST_FRAMEWORK = {
 
     'PAGE_SIZE': 10,
 }
+
+CORS_ORIGIN_WHITELIST = (
+    'joel-qs.herokuapp.com',
+    'localhost:3000',
+)
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
