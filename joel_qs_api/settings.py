@@ -151,12 +151,3 @@ CORS_ORIGIN_WHITELIST = (
     'joel-qs.herokuapp.com',
     'localhost:3000',
 )
-
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-)

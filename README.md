@@ -4,7 +4,7 @@ REST API for "questions" application, using django-rest-framework
 
 ## Created from a template
 
-Using a Heroku template to create a new Django app was easy::
+Using a Heroku template to create a new Django app was easy:
 
     $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
 
