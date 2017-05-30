@@ -143,11 +143,16 @@ REST_FRAMEWORK = {
     # Turn off authentication: API access for everyone!
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [],
-
-    'PAGE_SIZE': 10,
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'joel-qs.herokuapp.com',
-    'localhost:3000',
-)
+hostname = os.uname()[1]
+
+if hostname in ['radish', 'turnip']:   # Add development hostnames here
+    CORS_ORIGIN_WHITELIST = (
+        'localhost:3000',
+    )
+else:
+    CORS_ORIGIN_WHITELIST = (
+        'localhost:3000'  # TODO: temporary - delete for production
+        'joel-qs.herokuapp.com',
+    )
