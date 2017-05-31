@@ -84,8 +84,17 @@ WSGI_APPLICATION = 'joel_qs_api.wsgi.application'
 
 DATABASES = {
     'default': {
+        # The easy, no-setup way:
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        # For running with postgres on developoment system, radish:
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'joel-qs-api',
+        # 'USER': 'joel-qs-api',
+        # 'PASSWORD': ';lkjhgfdsa',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '5432',
     }
 }
 
@@ -113,7 +122,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Update database configuration with $DATABASE_URL.
+# Update database configuration with $DATABASE_URL if it exists. (For Heroku.)
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 

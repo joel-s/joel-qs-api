@@ -23,7 +23,7 @@ router.register(r'questions', views.QuestionViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^questions-csv/', views.QuestionsCSVView.as_view()),
+    url(r'^questions-csv/', views.QuestionsCsvView.as_view()),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/',
         include('rest_framework.urls', namespace='rest_framework')),
