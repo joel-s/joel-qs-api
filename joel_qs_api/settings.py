@@ -154,14 +154,16 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [],
 }
 
-hostname = os.uname()[1]
 
+# Configure which domains can access this API:
+hostname = os.uname()[1]
 if hostname in ['radish', 'turnip']:   # Add development hostnames here
     CORS_ORIGIN_WHITELIST = (
         'localhost:3000',
     )
 else:
     CORS_ORIGIN_WHITELIST = (
-        'localhost:3000'  # TODO: temporary - delete for production
         'joel-qs.herokuapp.com',
     )
+
+CORS_ORIGIN_ALLOW_ALL = True   # HACK: For tempory testing
