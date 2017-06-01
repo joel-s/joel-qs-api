@@ -166,4 +166,4 @@ else:
         'joel-qs.herokuapp.com',
     )
 
-CORS_ORIGIN_ALLOW_ALL = True   # HACK: For tempory testing
+# CORS_ORIGIN_ALLOW_ALL = True   # HACK: For tempory testing
