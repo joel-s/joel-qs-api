@@ -164,6 +164,7 @@ if hostname in ['radish', 'turnip']:   # Add development hostnames here
 else:
     CORS_ORIGIN_WHITELIST = (
         'joel-qs.herokuapp.com',
+        'jsullivan.us,'
     )
 
 # CORS_ORIGIN_ALLOW_ALL = True   # HACK: For tempory testing
