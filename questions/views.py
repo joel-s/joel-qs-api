@@ -1,4 +1,5 @@
 import csv
+import os
 from rest_framework import viewsets, views
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.utils.decorators import method_decorator
@@ -24,7 +25,7 @@ class QuestionsCsvView(views.APIView):
 
         print("Receiving file (to " + overwrite + ")...")
         client_file = request.FILES['csvFile']
-        filename = '/tmp/joel-qs-csv-upload'
+        filename = '/tmp/joel-qs-csv-upload.{}'.format(os.getpid())
         with open(filename, 'wb+') as temp_file:
             for chunk in client_file.chunks():
                 temp_file.write(chunk)
@@ -35,6 +36,7 @@ class QuestionsCsvView(views.APIView):
         if error_msg:
             return self.error_http_response(400, error_msg)
         print("Parsed CSV")
+        os.remove(filename)
 
         # CSV data is valid; update database
         return self.update_db(overwrite, csv_data)
